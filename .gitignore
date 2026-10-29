@@ -1,0 +1,11 @@
+.gradle/
+gradle-home/
+build/
+run/
+.idea/
+*.iml
+tools/
+build-log.txt
+runclient-log.txt
+server-*.log
+ChestESP-*.jar
