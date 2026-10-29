@@ -1,0 +1,20 @@
+ShelfESP
+========
+
+ShelfESP is a client-side Fabric mod for Minecraft 26.1.2 that highlights
+shelves containing at least one item, with the highlight rendered through
+walls (an ESP-style overlay).
+
+The rendering approach and the wide-line shader were inspired by the
+open-source ChestESP mod by Alexander01998 (GPL-3.0-or-later):
+
+    https://github.com/Wurst-Imperium/ChestESP
+
+ShelfESP does not include ChestESP's code or assets. It implements its own
+shelf scanner, configuration, key binding, renderer, and mixins. Its
+depth-independent line/quad pipelines follow the same public Minecraft
+rendering APIs that ChestESP uses, and the GLSL wide-line math is a
+reimplementation of the standard screen-space line expansion used there.
+
+ShelfESP is licensed under the GNU General Public License v3.0 or later.
+See LICENSE for the full text.
