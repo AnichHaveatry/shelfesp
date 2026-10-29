@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "shelfesp",
+  "version": "${version}",
+  "name": "ShelfESP",
+  "description": "Highlights shelves that contain items, visible through walls. Client-side only.",
+  "authors": [
+    "ShelfESP contributors"
+  ],
+  "license": "GPL-3.0-or-later",
+  "icon": "assets/shelfesp/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.shelfesp.ShelfEspClient"
+    ]
+  },
+  "mixins": [
+    "shelfesp.mixins.json"
+  ],
+  "accessWidener": "shelfesp.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "fabric-api": ">=0.155.3",
+    "minecraft": "~26.1",
+    "java": ">=25"
+  }
+}
