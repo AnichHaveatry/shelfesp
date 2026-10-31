@@ -1,6 +1,12 @@
 # ShelfESP
 
+[![Build and Release](https://github.com/AnichHaveatry/shelfesp/actions/workflows/build-release.yml/badge.svg)](https://github.com/AnichHaveatry/shelfesp/actions/workflows/build-release.yml)
+[![Latest release](https://img.shields.io/github/v/release/AnichHaveatry/shelfesp)](https://github.com/AnichHaveatry/shelfesp/releases)
+
 适用于 **Minecraft 26.1.2 + Fabric** 的客户端模组：高亮**装有物品的展示架（Shelf）**，并且像 ChestESP 一样**穿墙可见**。
+
+GitHub 仓库：<https://github.com/AnichHaveatry/shelfesp>  
+下载：<https://github.com/AnichHaveatry/shelfesp/releases/latest>
 
 只在单人世界使用也完全没问题；模组是纯客户端的，不改变方块、物品或服务端逻辑。
 

@@ -70,7 +70,7 @@ jobs:
             ## Install
 
             1. Install Fabric Loader and Fabric API.
-            2. Put `shelfesp-1.0.0.jar` into `.minecraft/mods/`.
+            2. Put the `shelfesp-<version>.jar` asset into `.minecraft/mods/`.
             3. Launch the game. Press `H` to toggle the overlay.
 
             ## Configuration
