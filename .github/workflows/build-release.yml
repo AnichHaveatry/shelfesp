@@ -1,0 +1,82 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          check-latest: true
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build
+        run: ./gradlew build --no-daemon --stacktrace
+
+      - name: Upload mod jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: shelfesp
+          path: build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 14
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built jars
+        uses: actions/download-artifact@v4
+        with:
+          name: shelfesp
+          path: dist
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ShelfESP ${{ github.ref_name }}
+          files: dist/*.jar
+          fail_on_unmatched_files: true
+          body: |
+            Client-side Fabric mod for **Minecraft 26.1.2** that highlights
+            shelves holding at least one item, visible through walls.
+
+            ## Requirements
+
+            - Minecraft 26.1.2
+            - Fabric Loader 0.18.4+ (tested with 0.19.5)
+            - Fabric API 0.155.3+26.1.2
+            - Java 25+
+
+            ## Install
+
+            1. Install Fabric Loader and Fabric API.
+            2. Put `shelfesp-1.0.0.jar` into `.minecraft/mods/`.
+            3. Launch the game. Press `H` to toggle the overlay.
+
+            ## Configuration
+
+            The mod creates `config/shelfesp.json` on first launch. It supports
+            box/tracer styles, colours, alpha, range and scan interval. See the
+            repository README for the full reference.
+
+            Release assets include the mod jar and its sources jar.
